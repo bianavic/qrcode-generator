@@ -1,10 +1,15 @@
 package org.edu.fabs.qrcodegenerator.service;
 
-import com.google.zxing.WriterException;
+import org.edu.fabs.qrcodegenerator.entity.ClientWifi;
 
-import java.awt.image.BufferedImage;
+import java.util.List;
 
 public interface QRCodeService {
 
-    BufferedImage generateQRCode(String text, int width, int height) throws WriterException;
+    ClientWifi addWifi(ClientWifi clientWifi);
+
+    List<ClientWifi> getHomeWifi();
+
+    ClientWifi getById(Long id);
+
 }
