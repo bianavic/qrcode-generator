@@ -6,6 +6,7 @@ import org.edu.fabs.qrcodegenerator.entity.ClientWifi;
 import org.edu.fabs.qrcodegenerator.service.QRCodeService;
 import org.edu.fabs.qrcodegenerator.utils.QRCodeGenerator;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.util.List;
 
+//@CrossOrigin(origins = "http://localhost:8181")
 @RestController
 @RequestMapping("v1/wifi")
 @RequiredArgsConstructor
