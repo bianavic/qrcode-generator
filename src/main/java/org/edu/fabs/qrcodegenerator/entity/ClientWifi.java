@@ -20,9 +20,4 @@ public class ClientWifi {
     private String wifiName;
     private String wifiPassword;
 
-    public ClientWifi(String wifiName, String wifiPassword) {
-        this.wifiName = wifiName;
-        this.wifiPassword = wifiPassword;
-    }
-
 }
