@@ -77,6 +77,16 @@ public class QRCodeControllerTest {
         verify(qrCodeServiceImpl, times(1)).getClientWifi();
     }
 
+    @Test
+    @DisplayName("Should successfully retrieve one registered wi-fi by its ID with status 200 OK")
+    public void getMappingOfClientWifiByIDShouldReturnRespectiveWifi() throws Exception {
+        when(qrCodeServiceImpl.getById(clientWifi.getId())).thenReturn(clientWifi);
+        mockMvc.perform(get("/v1/wifi/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(asJsonString(clientWifi)))
+                .andDo(MockMvcResultHandlers.print());
+    }
+
     private String asJsonString(final ClientWifi clientWifi) {
         try {
             return new ObjectMapper().writeValueAsString(clientWifi);
