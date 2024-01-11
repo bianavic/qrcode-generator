@@ -23,6 +23,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @DisplayName("QR Code Controller test")
@@ -42,12 +43,14 @@ public class QRCodeControllerTest {
     @BeforeEach
     public void setUp() {
         clientWifi = new ClientWifi(1L, "Home Wifi", "123wifi");
+        clientWifiList = List.of(clientWifi);
         mockMvc = MockMvcBuilders.standaloneSetup(qrCodeController).build();
     }
 
     @AfterEach
     public void tearDown() {
         clientWifi = null;
+        clientWifiList = null;
     }
 
     @DisplayName("Should successfully add a new wifi and return status 201 Created")
@@ -60,6 +63,18 @@ public class QRCodeControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andDo(MockMvcResultHandlers.print());
         verify(qrCodeServiceImpl, times(1)).addWifi(any());
+    }
+
+    @DisplayName("Should successfully retrieve all registered wi-fis and return status 200 OK")
+    @Test
+    public void getMappingOfAllRegisteredWifis() throws Exception {
+        when(qrCodeServiceImpl.getClientWifi()).thenReturn(clientWifiList);
+        mockMvc.perform(get("/v1/wifi")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(clientWifi)))
+                .andDo(MockMvcResultHandlers.print());
+        verify(qrCodeServiceImpl).getClientWifi();
+        verify(qrCodeServiceImpl, times(1)).getClientWifi();
     }
 
     private String asJsonString(final ClientWifi clientWifi) {
