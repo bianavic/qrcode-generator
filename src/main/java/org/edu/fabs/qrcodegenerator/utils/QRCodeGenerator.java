@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 
 public class QRCodeGenerator {
 
-    private static final String QR_CODES_DIRECTORY = "/app/src/main/resources/qrcodes/";
+    private static final String QR_CODES_DIRECTORY = "./src/main/resources/qrcodes/";
 
     public static void generateQRCode(ClientWifi clientWifi) throws WriterException, IOException {
 

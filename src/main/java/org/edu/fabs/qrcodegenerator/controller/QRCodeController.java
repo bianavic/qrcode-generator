@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.edu.fabs.qrcodegenerator.entity.ClientWifi;
 import org.edu.fabs.qrcodegenerator.service.QRCodeService;
 import org.edu.fabs.qrcodegenerator.utils.QRCodeGenerator;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +32,7 @@ public class QRCodeController {
                 QRCodeGenerator.generateQRCode(clientWifi);
             }
         }
-        return ResponseEntity.ok(QRCodeService.getClientWifi());
+        return ResponseEntity.ok(clientWifiList);
     }
 
     @GetMapping("/{id}")
@@ -40,8 +41,9 @@ public class QRCodeController {
     }
 
     @PostMapping
-    public ClientWifi addWifi(@RequestBody ClientWifi clientWifi) {
-        return QRCodeService.addWifi(clientWifi);
+    public ResponseEntity<ClientWifi> addWifi(@RequestBody ClientWifi clientWifi) {
+        ClientWifi saveClientWifi = QRCodeService.addWifi(clientWifi);
+        return new ResponseEntity<>(saveClientWifi, HttpStatus.CREATED);
     }
 
 }
