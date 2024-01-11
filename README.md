@@ -11,16 +11,39 @@
 - postgresql
 - zxing
 
-## How To
-gitclone
-build
-run - postgres config
+## Run Project
 
-post
-get -> 
-visualizar qrcode:
-faça o get, o qrcode é gerado como png na pasta src/main/resources/qrcodes
-scanear
+clone the project:
+```bash
+git clone git@github.com:bianavic/qrcode-generator.git
+```
+
+navigate to application directory
+```bash
+cd qrcode-generator
+```
+build application
+```bash
+./gradlew build
+```
+run the application
+```bash
+sudo docker-compose up
+```
+stop the application
+```bash
+sudo docker-compose down
+```
+
+## Generate QRCode
+while project is up
+
+1- make a post-request with your Wi-Fi name and password
+
+2- make a get-request: it will generate the qrcode png file at resources directory
+
+<img src="src/main/resources/qrcodes/test1-QRCODE.png" width="200" height="200">
+
 
 ## Client
 
@@ -40,7 +63,7 @@ curl --location 'http://localhost:9090/v1/wifi' \
     "wifiPassword": "test123"
 }'
 ```
-###### 200 CREATED
+###### 200 OK
 ``` json
 {"id":1,"wifiName":"test","wifiPassword":"test123"}
 ```
