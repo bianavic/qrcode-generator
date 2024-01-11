@@ -25,13 +25,13 @@ public class QRCodeController {
 
     @GetMapping
     public ResponseEntity<List<ClientWifi>> getAllHomeWifi() throws IOException, WriterException {
-        List<ClientWifi> clientWifiList = QRCodeService.getHomeWifi();
+        List<ClientWifi> clientWifiList = QRCodeService.getClientWifi();
         if (!clientWifiList.isEmpty()) {
             for (ClientWifi clientWifi : clientWifiList) {
                 QRCodeGenerator.generateQRCode(clientWifi);
             }
         }
-        return ResponseEntity.ok(QRCodeService.getHomeWifi());
+        return ResponseEntity.ok(QRCodeService.getClientWifi());
     }
 
     @GetMapping("/{id}")
