@@ -5,7 +5,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.edu.fabs.qrcodegenerator.entity.ClientWifi;
@@ -58,7 +57,7 @@ public class QRCodeController {
     @Operation(
             summary = "Add a new wi-fi",
             description = "Add a ClientWifi object. The response is ClientWifi object with id, wifiName and wifiPassword")
-    @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = ClientWifi.class), mediaType = "application/json")})
+    @ApiResponse(responseCode = "201", content = {@Content(schema = @Schema(implementation = ClientWifi.class), mediaType = "application/json")})
     @PostMapping
     public ResponseEntity<ClientWifi> addWifi(@RequestBody ClientWifi clientWifi) {
         ClientWifi saveClientWifi = QRCodeService.addWifi(clientWifi);

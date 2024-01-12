@@ -1,6 +1,9 @@
 # QRCODE Generator
+personal project
 
-### tools:
+--- 
+
+### Technologies:
 - linux
 - intellij
 - java 17
@@ -10,13 +13,19 @@
 - lombok
 - postgresql
 - zxing
+- openapi
+- swagger
 
 ## Run Project
+
+--- 
 
 clone the project:
 ```bash
 git clone git@github.com:bianavic/qrcode-generator.git
 ```
+open this project in your preferred IDE
+
 
 navigate to application directory
 ```bash
@@ -35,7 +44,17 @@ stop the application
 sudo docker-compose down
 ```
 
+## Swagger: 
+
+---
+
+#### access the documentation
+http://localhost:6060/swagger-ui/index.html
+
 ## Generate QRCode
+
+---
+
 while project is up
 
 1- make a post-request with your Wi-Fi name and password
@@ -44,8 +63,9 @@ while project is up
 
 <img src="src/main/resources/qrcodes/test1-QRCODE.png" width="200" height="200">
 
+## Routes
 
-## Client
+---
 
 | API ROUTE		                | DESCRIPTION                   | STATUS |
 |:--------------------------------|:------------------------------|:-------|
@@ -53,8 +73,9 @@ while project is up
 | [GET] v1/wifi/{id}              | Retrieve wifi by ID           | 200    |
 | [GET] v1/wifi	               | Retrieve all registered wifis | 200    |
 
+---
 
-#### add wifi
+### add Wi-Fi
 ```bash
 curl --location 'http://localhost:9090/v1/wifi' \
 --header 'Content-Type: application/json' \
@@ -63,12 +84,12 @@ curl --location 'http://localhost:9090/v1/wifi' \
     "wifiPassword": "test123"
 }'
 ```
-###### 200 OK
+###### 201 CREATED
 ``` json
 {"id":1,"wifiName":"test","wifiPassword":"test123"}
 ```
 
-#### get all registered wifi
+### get all registered WiFis
 ```bash
 curl --location 'http://localhost:9090/v1/wifi' \
 --data ''
@@ -84,7 +105,7 @@ curl --location 'http://localhost:9090/v1/wifi' \
 ]
 ```
 
-#### get wifi by ID
+### get Wi-Fi by ID
 ```bash
 curl --location 'http://localhost:9090/v1/wifi/1' \
 --data ''
@@ -98,6 +119,9 @@ curl --location 'http://localhost:9090/v1/wifi/1' \
 }
 ```
 
-### Code Coverage Report
+## Code Coverage Report
+
+---
+
 ![codecoverage.png](img/codecoverage.png)
 
