@@ -98,4 +98,6 @@ curl --location 'http://localhost:9090/v1/wifi/1' \
 }
 ```
 
+### Code Coverage Report
+![codecoverage.png](img/codecoverage.png)
 

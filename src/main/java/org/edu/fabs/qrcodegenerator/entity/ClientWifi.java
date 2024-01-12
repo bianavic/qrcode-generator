@@ -4,12 +4,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class ClientWifi {
 
     @Id
@@ -17,10 +19,5 @@ public class ClientWifi {
     private Long id;
     private String wifiName;
     private String wifiPassword;
-
-    public ClientWifi(String wifiName, String wifiPassword) {
-        this.wifiName = wifiName;
-        this.wifiPassword = wifiPassword;
-    }
 
 }

@@ -20,7 +20,7 @@ public class QRCodeServiceImpl implements QRCodeService {
     }
 
     @Override
-    public List<ClientWifi> getHomeWifi() {
+    public List<ClientWifi> getClientWifi() {
         return wifiRepository.findAll();
     }
 

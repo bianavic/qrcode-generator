@@ -8,7 +8,7 @@ public interface QRCodeService {
 
     ClientWifi addWifi(ClientWifi clientWifi);
 
-    List<ClientWifi> getHomeWifi();
+    List<ClientWifi> getClientWifi();
 
     ClientWifi getById(Long id);
 
