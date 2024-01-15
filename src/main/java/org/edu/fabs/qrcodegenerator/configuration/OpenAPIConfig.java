@@ -20,7 +20,6 @@ public class OpenAPIConfig {
                 .version("0.0.1")
                 .contact(new Contact().name("FabFerlin")
                         .url("https://github.com/bianavic"))
-                .license(new License().name("MIT License").url("https://choosealicense.com/licenses/mit/"))
-        );
+                .license(new License().name("MIT License").url("https://choosealicense.com/licenses/mit/")));
     }
 }
